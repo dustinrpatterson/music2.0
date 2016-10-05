@@ -11,12 +11,19 @@ this.getMusic = function getMusic() {
 
 //button that moves song to playlist
 $('#foundMusic').on('click','.addSong', function(){
-    debugger
     var id =$(this).context.id
     myTunes.addTrack(id)
     var artist = document.getElementById('artist').value;
     drawSongs(songList);
     drawPlaylist(myTunes.getMyPlaylist())
+})
+
+//button that removes a song from playlist
+$('#playlistMusic').on('click','.removeSong', function(){
+    var id =$(this).context.id
+    myTunes.removeTrack(id)
+    drawPlaylist(myTunes.getMyPlaylist())
+    drawSongs(songList)
 })
 
 
