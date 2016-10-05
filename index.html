@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Find your jam!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Pacifico|Permanent+Marker|Rock+Salt" rel="stylesheet">
+  </head>
+  <body>
+    <div class="searchArea">
+      <h1>Music Project 2.0</h1>
+      <form class="form-inline">
+        <!--DO NOT MODIFY THE ID OR ONCLICK ATTRIBUTES IN THIS FORM-->
+        <div class="form-group">
+          <input type="text" class="form-control" id="artist" placeholder="Artist Name" onkeydown="if (event.keyCode == 13) { getMusic(); return false;}"/>
+          <button type="button" class="btn btn-primary" id="get-music-button" onclick="getMusic()">Get Music</button>
+        </div>
+      </form>
+    </div>      
+      <div id="foundMusic" >
+       
+      </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="my-tunes-service.js"></script>
+    <script src="controller.js"></script>
+
+  </body>
+</html>
+

@@ -1,0 +1,51 @@
+body{
+    background-image: url(https://static.pexels.com/photos/1591/technology-music-sound-things-large.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size:100% 100%;
+    color: white;
+    
+}
+
+.searchArea{
+    text-align: center;
+    height: 20%;
+    text-shadow: 2px 2px 4px black;
+}
+
+.results{
+    display: flex;    
+}
+
+.card{
+    background:white;
+    box-shadow: 1px 1px 3px black;
+    height:auto;
+    width: auto;
+    padding:10px;
+    border-radius:10px;
+    margin: 2% 10%;
+    color:black;
+    opacity: .75;
+    font-family: 'Lato', sans-serif;
+}
+
+.card:hover{
+    opacity: 1;
+}
+
+.img-container{
+border: 2px solid slategrey;
+}
+
+h2{
+    font-weight: bold;
+    font-family: 'Permanent Marker', cursive;    
+}
+
+h1{
+    font-weight: bold;
+    font-family: 'Rock Salt', cursive;
+    font-size: 80;
+}
