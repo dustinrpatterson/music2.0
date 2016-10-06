@@ -6,12 +6,6 @@ function MyTunes(){
 
 //myPlaylist array
   var myPlaylist = []
-  
-//Global variable for likes... 
-  var likes = 0
-
-//Global variable for dislikes...
-  var dislikes = 0
 
 //alias for this
   var tunesService = this;
@@ -33,7 +27,8 @@ function MyTunes(){
                   collection: song.collectionName,
                   price: song.collectionPrice,
                   preview: song.previewUrl,
-                  id: song.trackId
+                  id: song.trackId,
+                  rating: 0
               };
           })
           $('#get-music-button').text('GET MUSIC');
@@ -71,25 +66,38 @@ function MyTunes(){
       for (var i = 0; i < myPlaylist.length; i++) {
           var songToLike = myPlaylist[i];
       if (id == songToLike.id) {
-          likes++
-          console.log(likes)
-          return likes
+          songToLike.rating ++
         }
       }
+      tunesService.sortByRating(myPlaylist)
   }
+
 //function to dislike (demote)
-
-
-  tunesService.demoteTrack = function demoteTrack(){
+  tunesService.demoteTrack = function demoteTrack(id){
       for (var i = 0; i < myPlaylist.length; i++) {
           var songToDislike = myPlaylist[i];
-      if (id == songToDislike.id){
-          dislikes--
-          console.log(dislikes)
-          return dislikes
+      if (id == songToDislike.id && songToDislike.rating > 0){
+          songToDislike.rating --
       }
       }
+      tunesService.sortByRating(myPlaylist)
   }
+
+//Sorting function
+  tunesService.sortByRating = function sortByRating(rating){
+      return myPlaylist.sort(function (a,b){
+          if(a.rating > b.rating){
+              return -1
+          }
+          if(a.rating < b.rating){
+              return 1
+          }
+          if(a.rating == b.rating){
+              return 0
+          }
+      })
+  }
+
 
 //brought in from codefoo
   tunesService.saveTracks = function saveTracks(){
