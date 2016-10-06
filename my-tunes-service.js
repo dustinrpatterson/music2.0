@@ -7,6 +7,12 @@ function MyTunes(){
 //myPlaylist array
   var myPlaylist = []
   
+//Global variable for likes... 
+  var likes = 0
+
+//Global variable for dislikes...
+  var dislikes = 0
+
 //alias for this
   var tunesService = this;
 
@@ -60,11 +66,29 @@ function MyTunes(){
           }
       }
   }
-  tunesService.promoteTrack = function promoteTrack(){
-
+  //function to like ("promote") a song
+  tunesService.promoteTrack = function promoteTrack(id){
+      for (var i = 0; i < myPlaylist.length; i++) {
+          var songToLike = myPlaylist[i];
+      if (id == songToLike.id) {
+          likes++
+          console.log(likes)
+          return likes
+        }
+      }
   }
-  tunesService.demoteTrack = function demoteTrack(){
+//function to dislike (demote)
 
+
+  tunesService.demoteTrack = function demoteTrack(){
+      for (var i = 0; i < myPlaylist.length; i++) {
+          var songToDislike = myPlaylist[i];
+      if (id == songToDislike.id){
+          dislikes--
+          console.log(dislikes)
+          return dislikes
+      }
+      }
   }
 
 //brought in from codefoo

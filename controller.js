@@ -26,6 +26,20 @@ $('#playlistMusic').on('click','.removeSong', function(){
     drawSongs(songList)
 })
 
+//button that adds likes to a song
+$('#playlistMusic').on('click','.likeSong', function(){
+    var id =$(this).context.id
+    myTunes.promoteTrack(id)
+    drawPlaylist(myTunes.getMyPlaylist())
+})
+
+//button that removes likes from a song
+$('#playlistMusic').on('click','.dislikeSong',function(){
+    var id =$(this).context.id
+    myTunes.promoteTrack(id)
+    drawPlaylist(myTunes.getMyPlaylist())
+})
+
 
 //drawSongs manipulates the DOM for songs that result from the search
 function drawSongs(songList) {
@@ -82,6 +96,8 @@ function drawPlaylist(myPlaylist) {
       
       <p>Price ${mySelectedSong.price}</p>
       <button class="removeSong" id="${mySelectedSong.id}"> Remove </button>
+      <button class="likeSong" id="${mySelectedSong.id}"> Like </button>
+      <button class="dislikeSong" id="${mySelectedSong.id}"> Dislike </button>
     </div>
   </div>
 </div>
