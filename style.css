@@ -1,42 +1,65 @@
 body{
-    background-image: url(https://static.pexels.com/photos/1591/technology-music-sound-things-large.jpg);
+    background-image: url(https://static.pexels.com/photos/62449/pexels-photo-62449-large.jpeg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size:100% 100%;
-    color: white;
+    color: lime;
     
 }
 
 .searchArea{
     text-align: center;
     height: 20%;
-    text-shadow: 2px 2px 4px black;
+    text-shadow: 5px 5px 5px deeppink;
 }
 
 .results{
-    display: flex;    
+    display: flex;
+    justify-content: flex-start;
+    align-items:baseline;    
 }
 
-.card{
+.songCard{
     background:white;
     box-shadow: 1px 1px 3px black;
     height:auto;
     width: auto;
-    padding:10px;
+    padding-right:10px;
+    padding-left:10px;
     border-radius:10px;
-    margin: 2% 10%;
+    margin: 2% 2%;
     color:black;
     opacity: .75;
     font-family: 'Lato', sans-serif;
 }
 
-.card:hover{
+.playlistCard{
+    background:white;
+    box-shadow: 1px 1px 3px black;
+    height:auto;
+    width: auto;
+    padding-right:10px;
+    padding-left:10px;
+    border-radius:10px;
+    margin: 2% 2%;
+    color:black;
+    opacity: .75;
+    font-family: 'Lato', sans-serif;
+}
+
+
+.songCard:hover{
     opacity: 1;
 }
 
-.img-container{
-border: 2px solid slategrey;
+.playlistCard:hover{
+    opacity: 1;
+}
+
+h4{
+    font-weight: bold;
+    font-family: 'Permanent Marker', cursive;    
 }
 
 h2{
@@ -48,4 +71,12 @@ h1{
     font-weight: bold;
     font-family: 'Rock Salt', cursive;
     font-size: 80;
+}
+
+.flexStuff{
+    padding:5px;
+}
+
+button{
+    margin-top:5px
 }

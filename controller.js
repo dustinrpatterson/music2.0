@@ -48,22 +48,31 @@ function drawSongs(songList) {
     for (var i = 0; i < songList.length; i++) {
         var foundMusic = songList[i]
         template += `
-<div class="card">
-  <div class="row results">
-    <div class="col-xs-12 col-sm-1"><img src="${foundMusic.albumArt}" alt="" /></div>
-    <div class="col-xs-12 col-sm-5">
+<div class="songCard">
+    <div class="row">
+    <div class="col-xs-6">
+  <div class="results">
+    <div class="flexStuff"><img src="${foundMusic.albumArt}" alt="" />
+    <p>Price ${foundMusic.price}</p>
+    </div>
+    <div class="flexStuff">
       <h2>${foundMusic.title}</h2>
       <p>${foundMusic.artist}</p>
     </div>
-    <div class="col-xs-12 col-sm-5"><audio controls preload="none">
+    </div>
+    </div>
+
+    <div class="col-xs-6">
+    <div class="results">
+    <div class="flexStuff"><audio controls preload="none">
           <source src="${foundMusic.preview}"> Your browser does not support the audio element.
           </audio>
           <p>Collection: ${foundMusic.collection}</p>
           </div>
-    <div class="col-xs-12 col-sm-1">
-      
-      <p>Price ${foundMusic.price}</p>
+    <div class="flexStuff">
       <button class="addSong btn-success" id="${foundMusic.id}"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add to Playlist </button>
+    </div>
+    </div>
     </div>
   </div>
 </div>
@@ -80,27 +89,39 @@ function drawPlaylist(myPlaylist) {
     for (var i = 0; i < myPlaylist.length; i++) {
         var mySelectedSong = myPlaylist[i]
         playlistTemplate += `
-<div class="card">
-  <div class="row results">
-    <div class="col-xs-12 col-sm-1"><img src="${mySelectedSong.albumArt}" alt="" /></div>
-    <div class="col-xs-12 col-sm-5">
-      <h2>${mySelectedSong.title}</h2>
-      <p>${mySelectedSong.artist}</p>
+<div class="playlistCard">
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="results">
+                <div class="flexStuff"><img src="${mySelectedSong.albumArt}" alt="" />
+                    <button class="removeSong btn-danger" id="${mySelectedSong.id}"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove </button>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-xs-9">
+            <div class="results">
+                <div class="flexStuff">
+                    <h4>${mySelectedSong.title}</h4>
+                    <p>${mySelectedSong.artist}</p>
+                    <h5> <b>Like Count: ${mySelectedSong.rating}</b></h5>
+                    <button class="likeSong btn-primary" id="${mySelectedSong.id}"> <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Like </button>
+                    <button class="dislikeSong btn-primary" id="${mySelectedSong.id}"> <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> Dislike </button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-xs-12 col-sm-5"><audio controls preload="none">
-          <source src="${mySelectedSong.preview}"> Your browser does not support the audio element.
-          </audio>
-          <p>Collection: ${mySelectedSong.collection}</p>
-          <p> <b>Like Count: ${mySelectedSong.rating}</b></p>
-          <button class="likeSong btn-primary" id="${mySelectedSong.id}"> <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Like </button>
-      <button class="dislikeSong btn-primary" id="${mySelectedSong.id}"> <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> Dislike </button>
-          </div>
-    <div class="col-xs-12 col-sm-1">
-      
-      <p>Price ${mySelectedSong.price}</p>
-      <button class="removeSong btn-danger" id="${mySelectedSong.id}"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove </button>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="results">
+                <div class="flexStuff">
+                <audio controls preload="none">
+                        <source src="${mySelectedSong.preview}"> Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 `
     }
@@ -124,3 +145,42 @@ window.addEventListener("play", function(evt)
 myTunes.loadTracks(drawPlaylist)
 }
 let musicController = new MusicController();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//WORKING playListtemplate
+
+
+// <div class="playlistCard">
+//   <div class="row results">
+//     <div class="col-sm-1"><img src="${mySelectedSong.albumArt}" alt="" />
+//     <p>Price ${mySelectedSong.price}</p></div>
+//     <div class="col-sm-5">
+//       <h4>${mySelectedSong.title}</h4>
+//       <p>${mySelectedSong.artist}</p>
+//     </div>
+//     <div class="col-sm-5"><audio controls preload="none">
+//           <source src="${mySelectedSong.preview}"> Your browser does not support the audio element.
+//           </audio>
+//           <p>Collection: ${mySelectedSong.collection}</p>
+//           <p> <b>Like Count: ${mySelectedSong.rating}</b></p>
+//           <button class="likeSong btn-primary" id="${mySelectedSong.id}"> <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Like </button>
+//       <button class="dislikeSong btn-primary" id="${mySelectedSong.id}"> <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> Dislike </button>
+//           </div>
+//     <div class="col-sm-1">
+//       <button class="removeSong btn-danger" id="${mySelectedSong.id}"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove </button>
+//     </div>
+//   </div>
+// </div>
+// `
