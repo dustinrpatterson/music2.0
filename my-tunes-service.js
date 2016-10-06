@@ -2,7 +2,7 @@
 function MyTunes(){
 
 //This was given in instruction, but it also references a myTracks array...
-  var myTracks = loadTracks();
+//   var myTracks = loadTracks();
 
 //myPlaylist array
   var myPlaylist = []
@@ -46,7 +46,7 @@ function MyTunes(){
           var songToAdd = songList[i];
           if (id == songToAdd.id) {
               myPlaylist.push(songToAdd)
-              songList.splice(i,1)
+              tunesService.saveTracks()
           }
       }
   }
@@ -56,7 +56,7 @@ function MyTunes(){
           var songToDrop = myPlaylist[i];
           if (id == songToDrop.id) {
               myPlaylist.splice(i,1)
-              songList.push(songToDrop)
+              tunesService.saveTracks()
           }
       }
   }
@@ -68,11 +68,16 @@ function MyTunes(){
   }
 
 //brought in from codefoo
-  function saveTracks(){
-
+  tunesService.saveTracks = function saveTracks(){
+      localStorage.setItem('randomVar',JSON.stringify(myPlaylist))
   }
-  function loadTracks(){
-
+  tunesService.loadTracks = function loadTracks(callback){
+     var temp = localStorage.getItem('randomVar')
+      if (temp) {
+        myPlaylist = JSON.parse(temp)
   }
+    callback(myPlaylist)
+   }   
+
 
 }

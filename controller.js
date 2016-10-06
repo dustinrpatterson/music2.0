@@ -55,8 +55,7 @@ function drawSongs(songList) {
 </div>
 `
     }
-    songElement.empty()
-    songElement.append(template)
+    songElement.empty().append(template)
 
 }
 
@@ -88,8 +87,7 @@ function drawPlaylist(myPlaylist) {
 </div>
 `
     }
-    playlistElem.empty()
-    playlistElem.append(playlistTemplate)
+    playlistElem.empty().append(playlistTemplate)
 
 }
 
@@ -106,6 +104,6 @@ window.addEventListener("play", function(evt)
    window.$_currentlyPlaying = evt.target;
 }, true);
 
+myTunes.loadTracks(drawPlaylist)
 }
-
 let musicController = new MusicController();
