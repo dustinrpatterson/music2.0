@@ -9,29 +9,31 @@
 
 <body>
     <div class="searchArea">
-        <h1>Playlist Maker</h1>
-        <form class="form-inline">
-            <!--DO NOT MODIFY THE ID OR ONCLICK ATTRIBUTES IN THIS FORM-->
-            <div class="form-group">
-                <input type="text" class="form-control" id="artist" placeholder="Artist Name" onkeydown="if (event.keyCode == 13) { musicController.getMusic(); return false;}"
-                />
-                <button type="button" class="btn btn-primary" id="get-music-button" onclick="musicController.getMusic()">Get Music</button>
-            </div>
-        </form>
-    </div>
-    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Playlist Maker</h1>
+                <form class="form-inline">
+                    <!--DO NOT MODIFY THE ID OR ONCLICK ATTRIBUTES IN THIS FORM-->
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="artist" placeholder="Artist Name" onkeydown="if (event.keyCode == 13) { musicController.getMusic(); return false;}" />
+<button type="button" class="btn btn-primary" id="get-music-button" onclick="musicController.getMusic()">Get Music</button>
+</div>
+</form>
+</div>
+</div>
+
+</div>
+<div class="container-fluid">
     <div class="row">
         <div id="foundMusic" class="col-xs-8 bigArea"> </div>
         <div id="playlistMusic" class="col-xs-4 smallArea"></div>
     </div>
-    </div>
+</div>
 
-    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-    <script src="my-tunes-service.js"></script>
-    <script src="controller.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="my-tunes-service.js"></script>
+<script src="controller.js"></script>
 
 </body>
 
 </html>
-
-
