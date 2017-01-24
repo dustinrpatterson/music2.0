@@ -66,7 +66,7 @@ function MyTunes(){
       for (var i = 0; i < myPlaylist.length; i++) {
           var songToLike = myPlaylist[i];
       if (id == songToLike.id) {
-          songToLike.rating ++
+           songToLike.rating ++
         }
       }
       tunesService.sortByRating(myPlaylist)
@@ -82,6 +82,7 @@ function MyTunes(){
       }
       tunesService.sortByRating(myPlaylist)
   }
+  
 
 //Sorting function
   tunesService.sortByRating = function sortByRating(rating){
